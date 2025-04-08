@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/03/15 17:18:11 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/08 11:14:08 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ int	main(void)
 	img.img = mlx_new_image(mlx, 1100, 860);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
+	// carre vert
 	draw_square(&img, 100, 100, 100, 0x00FF00);
+	// affichage du carre vert
 	mlx_put_image_to_window(mlx, win, img.img, 0, 0);
+	// la boucle principale
 	mlx_loop(mlx);
 	return (0);
 }

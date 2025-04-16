@@ -1,10 +1,11 @@
 NAME = solong
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux
+CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -Ignl
 LDFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 SRCS = gnl/get_next_line_utils.c\
 		gnl/get_next_line.c\
+		print.map.c\
 		main.c
 OBJ = $(SRCS:.c=.o)
 

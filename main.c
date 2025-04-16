@@ -6,20 +6,11 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/08 13:14:53 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/16 21:50:12 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-
-typedef struct _data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_data;
+#include "so_long.h"
 
 void	draw_square(t_data *data, int start_x, int start_y, int size, int color)
 {
@@ -52,9 +43,10 @@ int	main(void)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	// carre rose
-	draw_square(&img, 100, 100, 100, 0xbb77cc);
+	// draw_square(&img, 100, 100, 100, 0xbb77cc);
 	// affichage du carre rose
-	mlx_put_image_to_window(mlx, win, img.img, 0, 0);
+	// mlx_put_image_to_window(mlx, win, img.img, 0, 0);
+	print_map_graphics(mlx, win, &img, "maps/map_test.ber");
 	// la boucle principale
 	mlx_loop(mlx);
 	return (0);

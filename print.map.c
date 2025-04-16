@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/16 21:48:09 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/16 22:23:51 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
 				color = 0x3399ff; // joueur = bleu
 			else if (line[x] == 'E')
 				color = 0x66ff66; // sortie = vert
+			else if (line[x] == 'C')
+				color = 0xbb77cc; // sortie = rose
 			draw_square(img, x * tile_size, y * tile_size, tile_size, color);
 			x++;
 		}

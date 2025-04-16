@@ -3,8 +3,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux
 LDFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
-SRC = main.c
-OBJ = $(SRC:.c=.o)
+SRCS = gnl/get_next_line_utils.c\
+		gnl/get_next_line.c\
+		main.c
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 	@$(MAKE) --no-print-directory banner

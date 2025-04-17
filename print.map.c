@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 19:37:18 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/17 20:39:33 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,17 @@ void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
 		x = 0;
 		while (line[x] && line[x] != '\n')
 		{
-			color = get_tile_color(line[x]);
-				// Utilisation de la fonction get_tile_color
+			color = 0xffffff;
+			if (line[x] == '1')
+				color = 0x000000;
+			else if (line[x] == '0')
+				color = 0xffffff;
+			else if (line[x] == 'P')
+				color = 0x3399ff;
+			else if (line[x] == 'E')
+				color = 0x66ff66;
+			else if (line[x] == 'C')
+				color = 0xbb77cc;
 			draw_square(img, x * tile_size, y * tile_size, tile_size, color);
 			x++;
 		}

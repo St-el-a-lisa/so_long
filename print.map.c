@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 16:27:52 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/17 17:58:50 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 0x66ff66 -> vert -> sortie
 0xbb77cc -> rose -> collectibles
 */
+#include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
 void	print_map(char *file)
@@ -32,7 +33,7 @@ void	print_map(char *file)
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("%s", line); // chaque ligne se termine déjà par \n
+		ft_printf("%s", line); // chaque ligne se termine déjà par \n
 		free(line);
 	}
 	close(fd);

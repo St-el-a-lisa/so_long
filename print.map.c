@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 17:58:50 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/17 19:37:18 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,8 @@ void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
 		x = 0;
 		while (line[x] && line[x] != '\n')
 		{
-			color = 0xffffff;
-			if (line[x] == '1')
-				color = 0x000000;
-			else if (line[x] == '0')
-				color = 0xffffff;
-			else if (line[x] == 'P')
-				color = 0x3399ff;
-			else if (line[x] == 'E')
-				color = 0x66ff66;
-			else if (line[x] == 'C')
-				color = 0xbb77cc;
+			color = get_tile_color(line[x]);
+				// Utilisation de la fonction get_tile_color
 			draw_square(img, x * tile_size, y * tile_size, tile_size, color);
 			x++;
 		}
@@ -80,4 +71,12 @@ void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
 	}
 	close(fd);
 	mlx_put_image_to_window(mlx, win, img->img, 0, 0);
+}
+
+int	close_window(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->win);    // pour fermer la fenetre
+	mlx_destroy_image(game->mlx, game->img.img); // pr liberer l image
+	exit(0);
+	return (0);
 }

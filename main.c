@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/16 21:50:12 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/17 19:32:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,20 @@ void	draw_square(t_data *data, int start_x, int start_y, int size, int color)
 
 int	main(void)
 {
-	void	*mlx;
-	void	*win;
-	t_data	img;
+	t_game	game;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 320, 320, "Window");
-	img.img = mlx_new_image(mlx, 320, 320);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-			&img.endian);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, 320, 320, "Window");
+	game.img.img = mlx_new_image(game.mlx, 320, 320);
+	game.img.addr = mlx_get_data_addr(game.img.img, &game.img.bits_per_pixel,
+			&game.img.line_length, &game.img.endian);
 	// carre rose
 	// draw_square(&img, 100, 100, 100, 0xbb77cc);
 	// affichage du carre rose
 	// mlx_put_image_to_window(mlx, win, img.img, 0, 0);
-	print_map_graphics(mlx, win, &img, "maps/map_test.ber");
+	print_map_graphics(game.mlx, game.win, &game.img, "maps/map_test.ber");
+	mlx_hook(game.win, 17, 0, close_window, &game);
 	// la boucle principale
-	mlx_loop(mlx);
+	mlx_loop(game.mlx);
 	return (0);
 }

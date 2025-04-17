@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 20:39:33 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/17 21:46:11 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,27 @@ void	print_map(char *file)
 	close(fd);
 }
 
-void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
+void	load_images(void *mlx, t_imgs *imgs)
 {
-	int		fd;
-	char	*line;
-	int		y;
-	int		x;
-	int		tile_size;
-	int		color;
+	int	w;
+	int	h;
+
+	imgs->wall = mlx_xpm_file_to_image(mlx, "./assets/wall.xpm", &w, &h);
+	imgs->floor = mlx_xpm_file_to_image(mlx, "./assets/floor.xpm", &w, &h);
+	imgs->player = mlx_xpm_file_to_image(mlx, "./assets/player1.xpm", &w, &h);
+	imgs->exit = mlx_xpm_file_to_image(mlx, "./assets/exit.xpm", &w, &h);
+	imgs->collectible = mlx_xpm_file_to_image(mlx, "./assets/coffee.xpm", &w,
+			&h);
+}
+
+void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
+
+{
+	int fd;
+	char *line;
+	int y;
+	int x;
+	int tile_size;
 
 	tile_size = 32;
 	fd = open(file, O_RDONLY);
@@ -61,25 +74,28 @@ void	print_map_graphics(void *mlx, void *win, t_data *img, char *file)
 		x = 0;
 		while (line[x] && line[x] != '\n')
 		{
-			color = 0xffffff;
 			if (line[x] == '1')
-				color = 0x000000;
+				mlx_put_image_to_window(mlx, win, imgs->wall, x * tile_size, y
+					* tile_size);
 			else if (line[x] == '0')
-				color = 0xffffff;
+				mlx_put_image_to_window(mlx, win, imgs->floor, x * tile_size, y
+					* tile_size);
 			else if (line[x] == 'P')
-				color = 0x3399ff;
+				mlx_put_image_to_window(mlx, win, imgs->player, x * tile_size, y
+					* tile_size);
 			else if (line[x] == 'E')
-				color = 0x66ff66;
+				mlx_put_image_to_window(mlx, win, imgs->exit, x * tile_size, y
+					* tile_size);
 			else if (line[x] == 'C')
-				color = 0xbb77cc;
-			draw_square(img, x * tile_size, y * tile_size, tile_size, color);
+				mlx_put_image_to_window(mlx, win, imgs->collectible, x
+					* tile_size, y * tile_size);
 			x++;
 		}
 		free(line);
 		y++;
 	}
+
 	close(fd);
-	mlx_put_image_to_window(mlx, win, img->img, 0, 0);
 }
 
 int	close_window(t_game *game)

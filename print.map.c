@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 21:46:11 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/18 16:36:39 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_map(char *file)
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		ft_printf("%s", line); // chaque ligne se termine déjà par \n
+		ft_printf("%s", line);
 		free(line);
 	}
 	close(fd);
@@ -55,11 +55,11 @@ void	load_images(void *mlx, t_imgs *imgs)
 void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
 
 {
-	int fd;
-	char *line;
-	int y;
-	int x;
-	int tile_size;
+	int	fd;
+	int	y;
+	int	x;
+	int	tile_size;
+	char	*line;
 
 	tile_size = 32;
 	fd = open(file, O_RDONLY);
@@ -100,8 +100,7 @@ void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
 
 int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);    // pour fermer la fenetre
-	mlx_destroy_image(game->mlx, game->img.img); // pr liberer l image
-	exit(0);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_image(game->mlx, game->img.img);
 	return (0);
 }

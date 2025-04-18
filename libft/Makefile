@@ -4,9 +4,13 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = ft_atoi.c
+SRCS = ft_atoi.c \
+      ft_printf/ft_printf.c \
+      ft_printf/ft_printf_utils.c \
+      ft_printf/ft_printf_utils2.c \
+      
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
 
 all: $(NAME)

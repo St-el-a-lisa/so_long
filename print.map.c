@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/18 21:08:09 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/18 21:49:46 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	close_window(t_game *game)
 	mlx_destroy_image(game->mlx, game->img.img);
 	// destroy img
 	// destroy img
-	// free game mlx
 	// hand look !
-	return (0);
+	// free(game->mlx);
+	exit(0);
 }

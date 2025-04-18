@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 21:52:48 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/18 16:52:56 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,9 @@ int	main(void)
 	game.img.img = mlx_new_image(game.mlx, 320, 320);
 	game.img.addr = mlx_get_data_addr(game.img.img, &game.img.bits_per_pixel,
 			&game.img.line_length, &game.img.endian);
-	// carre rose
-	// draw_square(&img, 100, 100, 100, 0xbb77cc);
-	// affichage du carre rose
-	// mlx_put_image_to_window(mlx, win, img.img, 0, 0);
 	load_images(game.mlx, &game.imgs);
 	print_map_graphics(game.mlx, game.win, &game.imgs, "maps/map_test.ber");
 	mlx_hook(game.win, 17, 0, close_window, &game);
-	// la boucle principale
 	mlx_loop(game.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/17 21:54:35 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/18 21:58:30 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void		draw_square(t_data *data, int start_x, int start_y, int size,
 				int color);
 void		load_images(void *mlx, t_imgs *imgs);
 int			close_window(t_game *game);
+void		free_all_resources(t_game *game);
 
 #endif

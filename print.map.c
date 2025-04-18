@@ -6,17 +6,10 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/18 21:49:46 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/18 21:58:16 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* colors
-0xffffff -> blanc -> defaut/ sol
-0x000000 -> noir -> mur
-0x3399ff -> bleu -> joueur
-0x66ff66 -> vert -> sortie
-0xbb77cc -> rose -> collectibles
-*/
 #include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
@@ -98,13 +91,29 @@ void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
 	close(fd);
 }
 
+void	free_all_resources(t_game *game)
+{
+	if (game->imgs.wall)
+		mlx_destroy_image(game->mlx, game->imgs.wall);
+	if (game->imgs.floor)
+		mlx_destroy_image(game->mlx, game->imgs.floor);
+	if (game->imgs.player)
+		mlx_destroy_image(game->mlx, game->imgs.player);
+	if (game->imgs.exit)
+		mlx_destroy_image(game->mlx, game->imgs.exit);
+	if (game->imgs.collectible)
+		mlx_destroy_image(game->mlx, game->imgs.collectible);
+	if (game->img.img)
+		mlx_destroy_image(game->mlx, game->img.img);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx); // seulement si tu es sur Linux
+									// Ne pas free game->mlx si c’est mlx_init() qui l’a fait
+}
+
 int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_image(game->mlx, game->img.img);
-	// destroy img
-	// destroy img
-	// hand look !
-	// free(game->mlx);
+	free_all_resources(game);
 	exit(0);
+	return (0);
 }

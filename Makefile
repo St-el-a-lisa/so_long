@@ -13,10 +13,13 @@ SRCS = gnl/get_next_line_utils.c\
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
-	@$(MAKE) --no-print-directory banner
+	@$(MAKE) banner --silent
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LIBFT) -o $(NAME)
+
+$(LIBFT): 
+	$(MAKE) -C libft --silent
 
 banner:
 	@echo "		\33[38;5;217m+=========================================================================+";
@@ -32,8 +35,12 @@ banner:
 	@echo "		\33[38;5;220m|     ░░░░░░░░░   ░░░░░░     ░░░░░░░░░░░  ░░░░░░  ░░░░ ░░░░░  ░░░░░███    |";
 	@echo "		|                                                             ███ ░███    |";
 	@echo "		\33[38;5;226m|                                                            ░░██████     |";
-	@echo "		|                                                             ░░░░░░      |";
-	@echo "		|                                                                         |";
+	@echo "		|    ( (                                                      ░░░░░░      |";
+	@echo "		|     ) )                                                                 |";
+	@echo "		|    .....                                                                |";
+	@echo "		|   |     |]                                                              |";
+	@echo "		|    \   /                                                                |";
+	@echo "		|    =====                                                                |";
 	@echo "		+=========================================================================+";
 
 %.o: %.c
@@ -41,9 +48,10 @@ banner:
 
 clean:
 	@rm -f $(OBJ)
+	@$(MAKE) -C libft fclean --silent
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) 
 
 re: fclean all
 

@@ -10,6 +10,7 @@ SRCS = gnl/get_next_line_utils.c\
 		srcs/print.map.c\
 		srcs/end_game.c\
 		srcs/moves.c\
+		srcs/is_valid.c\
 		srcs/main.c
 
 OBJ = $(SRCS:.c=.o)

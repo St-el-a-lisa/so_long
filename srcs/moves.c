@@ -6,12 +6,20 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 16:43:05 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 17:25:01 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
+
+/* keycode
+	65307 => ESC
+	119 => W
+	115 => S
+	97 => A
+	100 => D
+*/
 
 void	find_player_position(t_game *game)
 {
@@ -58,15 +66,15 @@ void	move_player(t_game *game, int dx, int dy)
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	if (keycode == 65307) // ESC
+	if (keycode == 65307)
 		close_window(game);
-	else if (keycode == 119) // W
+	else if (keycode == 119)
 		move_player(game, 0, -1);
-	else if (keycode == 115) // S
+	else if (keycode == 115)
 		move_player(game, 0, 1);
-	else if (keycode == 97) // A
+	else if (keycode == 97)
 		move_player(game, -1, 0);
-	else if (keycode == 100) // D
+	else if (keycode == 100)
 		move_player(game, 1, 0);
 	return (0);
 }

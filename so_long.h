@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 16:44:28 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 21:03:05 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,14 @@ void		free_all_resources(t_game *game);
 void		find_player_position(t_game *game);
 void		move_player(t_game *game, int dx, int dy);
 int			handle_keypress(int keycode, t_game *game);
+
+/*verification map*/
+void		validate_map(char **map, int height);
+void		error_and_exit(const char *message);
+int			check_elements(char **map, int height);
+int			check_chars(char **map, int height);
+int			check_walls(char **map, int height);
+int			check_rectangular(char **map, int height);
+int			get_map_height(char **map);
 
 #endif

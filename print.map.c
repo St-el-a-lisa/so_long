@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 14:15:24 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 15:04:30 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,38 @@ void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
 	}
 
 	close(fd);
+}
+
+char	**load_map(char *file)
+{
+	int		fd;
+	char	*line;
+	char	**map;
+	int		lines;
+	int		i;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	lines = 0;
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		lines++;
+		free(line);
+	}
+	close(fd);
+	map = malloc(sizeof(char *) * (lines + 1));
+	if (!map)
+		return (NULL);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	i = 0;
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		map[i++] = line;
+	}
+	map[i] = NULL;
+	close(fd);
+	return (map);
 }

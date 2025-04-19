@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 15:19:50 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 17:42:22 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ void	load_images(void *mlx, t_imgs *imgs)
 void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char **map)
 {
 	int	tile_size;
+	int	x;
+	int	y;
 
-	int x, y;
 	tile_size = 32;
 	y = 0;
 	while (map[y] != NULL)

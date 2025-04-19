@@ -8,7 +8,7 @@ LIBFT = libft/libft.a
 SRCS = gnl/get_next_line_utils.c\
 		gnl/get_next_line.c\
 		print.map.c\
-		ended_game.c\
+		end_game.c\
 		main.c
 
 OBJ = $(SRCS:.c=.o)

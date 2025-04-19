@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 15:03:22 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 16:44:28 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,17 @@ typedef struct s_game
 }			t_game;
 
 void		print_map(char *file);
-void		print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file);
+void		print_map_graphics(void *mlx, void *win, t_imgs *imgs, char **map);
 char		**load_map(char *file);
 void		draw_square(t_data *data, int start_x, int start_y, int size,
 				int color);
 void		load_images(void *mlx, t_imgs *imgs);
 int			close_window(t_game *game);
 void		free_all_resources(t_game *game);
+
+/* player moves*/
+void		find_player_position(t_game *game);
+void		move_player(t_game *game, int dx, int dy);
+int			handle_keypress(int keycode, t_game *game);
 
 #endif

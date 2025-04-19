@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 15:04:30 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 15:19:50 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,50 +45,37 @@ void	load_images(void *mlx, t_imgs *imgs)
 			&w, &h);
 }
 
-void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char *file)
-
+void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char **map)
 {
-	int fd;
-	int y;
-	int x;
-	int tile_size;
-	char *line;
+	int	tile_size;
 
+	int x, y;
 	tile_size = 32;
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("open");
-		return ;
-	}
 	y = 0;
-	while ((line = get_next_line(fd)) != NULL)
+	while (map[y] != NULL)
 	{
 		x = 0;
-		while (line[x] && line[x] != '\n')
+		while (map[y][x] != '\0')
 		{
-			if (line[x] == '1')
+			if (map[y][x] == '1')
 				mlx_put_image_to_window(mlx, win, imgs->wall, x * tile_size, y
 					* tile_size);
-			else if (line[x] == '0')
+			else if (map[y][x] == '0')
 				mlx_put_image_to_window(mlx, win, imgs->floor, x * tile_size, y
 					* tile_size);
-			else if (line[x] == 'P')
+			else if (map[y][x] == 'P')
 				mlx_put_image_to_window(mlx, win, imgs->player, x * tile_size, y
 					* tile_size);
-			else if (line[x] == 'E')
+			else if (map[y][x] == 'E')
 				mlx_put_image_to_window(mlx, win, imgs->exit, x * tile_size, y
 					* tile_size);
-			else if (line[x] == 'C')
+			else if (map[y][x] == 'C')
 				mlx_put_image_to_window(mlx, win, imgs->collectible, x
 					* tile_size, y * tile_size);
 			x++;
 		}
-		free(line);
 		y++;
 	}
-
-	close(fd);
 }
 
 char	**load_map(char *file)

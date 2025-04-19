@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = ft_atoi.c \
+SRCS = ft_atoi.c ft_strdup.c ft_strlen.c \
       ft_printf/ft_printf.c \
       ft_printf/ft_printf_utils.c \
       ft_printf/ft_printf_utils2.c \

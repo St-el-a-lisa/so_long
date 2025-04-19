@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 19:09:33 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 19:16:07 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ int	count_collectibles(char **map)
 
 void	find_player(char **map, int *x, int *y)
 {
-	int i = 0;
-	int j;
+	int	i;
+	int	j;
+
+	i = 0;
 	while (map[i])
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 21:40:50 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 22:12:24 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,13 +140,13 @@ void	error_and_exit(const char *message)
 void	validate_map(char **map, int height)
 {
 	if (!check_rectangular(map, height))
-		error_and_exit("Map is not rectangular");
+		error_and_exit("La map n est pas rectangulaire!");
 	if (!check_walls(map, height))
-		error_and_exit("Map is not surrounded by walls (1)");
+		error_and_exit("Il manque des murs!");
 	if (!check_chars(map, height))
-		error_and_exit("Map contains invalid characters");
+		error_and_exit("La carte contient des caracteres non valides!");
 	if (!check_elements(map, height))
-		error_and_exit("Error\nInvalid number of P, E, or C\n");
+		error_and_exit("Verifiez le nombre de P, E et C ;)");
 }
 
 // char	**copy_map(char **map, int height)

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/18 21:58:16 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 13:44:37 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,7 @@ void	free_all_resources(t_game *game)
 		mlx_destroy_image(game->mlx, game->img.img);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx); // seulement si tu es sur Linux
-									// Ne pas free game->mlx si c’est mlx_init() qui l’a fait
+	mlx_destroy_display(game->mlx);
 }
 
 int	close_window(t_game *game)

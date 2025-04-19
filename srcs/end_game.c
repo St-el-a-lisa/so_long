@@ -6,15 +6,32 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 17:43:10 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/19 22:28:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
 void	free_all_resources(t_game *game)
 {
+	if (game->map)
+		free_map(game->map);
 	if (game->imgs.wall)
 		mlx_destroy_image(game->mlx, game->imgs.wall);
 	if (game->imgs.floor)

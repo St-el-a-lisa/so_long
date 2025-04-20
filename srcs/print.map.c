@@ -6,12 +6,10 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:43:37 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:56:06 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
 void	print_map(char *file)

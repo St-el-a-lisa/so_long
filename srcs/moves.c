@@ -6,11 +6,10 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:02:26 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 21:09:13 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
 /* keycode
@@ -43,6 +42,27 @@ void	find_player_position(t_game *game)
 		y++;
 	}
 }
+int	has_collected_all(t_game *game)
+{
+	int	y;
+	int	x;
+	int	collectibles;
+
+	collectibles = 0;
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'C')
+				collectibles++;
+			x++;
+		}
+		y++;
+	}
+	return (collectibles == 0);
+}
 
 void	move_player(t_game *game, int dx, int dy)
 {
@@ -56,6 +76,11 @@ void	move_player(t_game *game, int dx, int dy)
 	if (game->map[new_y][new_x] == 'C')
 	{
 		game->map[new_y][new_x] = '0';
+	}
+	if (game->map[new_y][new_x] == 'E')
+	{
+		if (!has_collected_all(game))
+			return ;
 	}
 	game->map[game->player_y][game->player_x] = '0';
 	game->map[new_y][new_x] = 'P';

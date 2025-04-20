@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:21:22 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:55:59 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SO_LONG_H
 
 # include "gnl/get_next_line.h"
+# include "libft.h"
+# include "libft/ft_printf/ft_printf.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>

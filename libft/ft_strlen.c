@@ -6,13 +6,13 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 19:07:53 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 18:58:18 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:26:23 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

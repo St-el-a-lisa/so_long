@@ -1,6 +1,6 @@
 NAME = solong
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -Ignl -g3
+CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -Ignl -Ilibft  -g3
 LDFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 LIBFT = libft/libft.a

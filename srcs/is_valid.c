@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 18:25:44 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:36:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ int	check_rectangular(char **map, int height)
 	int	len;
 
 	width = ft_strlen(map[0]);
-	if (map[0][width - 1] == '\n')
-		width--;
 	i = 0;
 	while (i < height)
 	{
 		len = ft_strlen(map[i]);
-		if (map[i][len - 1] == '\n')
-			len--;
 		if (len != width)
 		{
 			return (0);
@@ -47,8 +43,6 @@ int	check_walls(char **map, int height)
 	x = 0;
 	while (x < width)
 	{
-		if (map[0][x] == '\n' || map[height - 1][x] == '\n')
-			break ;
 		if (map[0][x] != '1' || map[height - 1][x] != '1')
 			return (0);
 		x++;
@@ -56,8 +50,6 @@ int	check_walls(char **map, int height)
 	y = 1;
 	while (y < height - 1)
 	{
-		if (map[y][0] == '\n' || map[y][width - 1] == '\n')
-			break ;
 		if (map[y][0] != '1' || map[y][width - 1] != '1')
 			return (0);
 		y++;
@@ -76,11 +68,6 @@ int	check_chars(char **map, int height)
 		x = 0;
 		while ((c = map[y][x]))
 		{
-			if (c == '\n')
-			{
-				x++;
-				continue ;
-			}
 			if (c != '0' && c != '1' && c != 'P' && c != 'C' && c != 'E')
 				return (0);
 			x++;

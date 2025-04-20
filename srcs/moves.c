@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 17:25:01 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:02:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	move_player(t_game *game, int dx, int dy)
 	game->map[new_y][new_x] = 'P';
 	game->player_x = new_x;
 	game->player_y = new_y;
-	print_map_graphics(game->mlx, game->win, &game->imgs, game->map);
+	print_map_graphics(game);
 }
 
 int	handle_keypress(int keycode, t_game *game)

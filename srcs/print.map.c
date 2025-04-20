@@ -6,10 +6,11 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 21:14:12 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 20:43:37 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 
@@ -45,34 +46,34 @@ void	load_images(void *mlx, t_imgs *imgs)
 			&w, &h);
 }
 
-void	print_map_graphics(void *mlx, void *win, t_imgs *imgs, char **map)
+void	print_map_graphics(t_game *game)
 {
-	int	tile_size;
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	void	*img;
+	char	tile;
 
-	tile_size = 32;
 	y = 0;
-	while (map[y] != NULL)
+	while (game->map[y])
 	{
 		x = 0;
-		while (map[y][x] != '\0')
+		while (game->map[y][x])
 		{
-			if (map[y][x] == '1')
-				mlx_put_image_to_window(mlx, win, imgs->wall, x * tile_size, y
-					* tile_size);
-			else if (map[y][x] == '0')
-				mlx_put_image_to_window(mlx, win, imgs->floor, x * tile_size, y
-					* tile_size);
-			else if (map[y][x] == 'P')
-				mlx_put_image_to_window(mlx, win, imgs->player, x * tile_size, y
-					* tile_size);
-			else if (map[y][x] == 'E')
-				mlx_put_image_to_window(mlx, win, imgs->exit, x * tile_size, y
-					* tile_size);
-			else if (map[y][x] == 'C')
-				mlx_put_image_to_window(mlx, win, imgs->collectible, x
-					* tile_size, y * tile_size);
+			img = NULL;
+			tile = game->map[y][x];
+			if (tile == '1')
+				img = game->imgs.wall;
+			else if (tile == '0')
+				img = game->imgs.floor;
+			else if (tile == 'P')
+				img = game->imgs.player;
+			else if (tile == 'E')
+				img = game->imgs.exit;
+			else if (tile == 'C')
+				img = game->imgs.collectible;
+			if (img)
+				mlx_put_image_to_window(game->mlx, game->win, img, x
+					* game->tile_size, y * game->tile_size);
 			x++;
 		}
 		y++;
@@ -102,11 +103,24 @@ char	**load_map(char *file)
 		return (NULL);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
+	{
+		free(map);
 		return (NULL);
+	}
 	i = 0;
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		map[i++] = line;
+		map[i] = ft_strtrim(line, "\n");
+		free(line);
+		if (!map[i])
+		{
+			while (--i >= 0)
+				free(map[i]);
+			free(map);
+			close(fd);
+			return (NULL);
+		}
+		i++;
 	}
 	map[i] = NULL;
 	close(fd);

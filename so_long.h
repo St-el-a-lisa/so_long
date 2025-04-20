@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:55:59 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 21:34:37 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void		load_images(void *mlx, t_imgs *imgs);
 void		free_map(char **map);
 void		free_all_resources(t_game *game);
 int			close_window(t_game *game);
+void		display_victory_message(t_game *game);
 
 /* player moves*/
 void		find_player_position(t_game *game);

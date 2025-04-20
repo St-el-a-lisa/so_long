@@ -6,11 +6,23 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:54:41 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 22:12:35 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	display_victory_message(t_game *game)
+{
+	mlx_clear_window(game->mlx, game->win);
+	mlx_string_put(game->mlx, game->win, (game->map_width * game->tile_size) / 2
+		- 100, (game->map_height * game->tile_size) / 2, 0xFF69B4,
+		"Bon Latte a toi!! ~ ^_^ ~");
+	usleep(50000);
+	mlx_do_sync(game->mlx);
+	sleep(3);
+	close_window(game);
+}
 
 void	free_map(char **map)
 {

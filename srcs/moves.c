@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 21:09:13 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 21:33:50 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	move_player(t_game *game, int dx, int dy)
 	{
 		if (!has_collected_all(game))
 			return ;
+		display_victory_message(game);
+		return ;
 	}
 	game->map[game->player_y][game->player_x] = '0';
 	game->map[new_y][new_x] = 'P';

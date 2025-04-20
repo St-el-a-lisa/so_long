@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 17:58:21 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 18:26:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ int			check_elements(char **map, int height);
 int			check_chars(char **map, int height);
 int			check_walls(char **map, int height);
 int			check_rectangular(char **map, int height);
+
+/*Taille de la fenetre*/
 int			get_map_height(char **map);
+int			get_map_width(char **map);
 
 #endif

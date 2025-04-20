@@ -18,7 +18,7 @@ OBJ = $(SRCS:.c=.o)
 all: $(NAME)
 	@$(MAKE) banner --silent
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) $(LIBFT) 
 	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LIBFT) -o $(NAME)
 
 $(LIBFT): 

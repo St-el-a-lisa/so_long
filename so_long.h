@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/19 22:28:58 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/20 17:58:21 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ typedef struct s_game
 void		print_map(char *file);
 void		print_map_graphics(void *mlx, void *win, t_imgs *imgs, char **map);
 char		**load_map(char *file);
-void		draw_square(t_data *data, int start_x, int start_y, int size,
-				int color);
+
 void		load_images(void *mlx, t_imgs *imgs);
 void		free_map(char **map);
 void		free_all_resources(t_game *game);

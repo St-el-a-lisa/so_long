@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 20:06:41 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 20:27:20 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,18 @@ void	error_and_exit(const char *message)
 	exit(EXIT_FAILURE);
 }
 
-void	validate_map(char **map, int height)
+void	validate_map(t_game *game)
 {
-	if (!check_rectangular(map, height))
+	if (!check_rectangular(game->map, game->map_height))
 		error_and_exit("La map n est pas rectangulaire!");
-	if (!check_walls(map, height))
+	if (!check_walls(game->map, game->map_height))
 		error_and_exit("Il manque un ou des mur(s)!");
-	if (!check_chars(map, height))
-		error_and_exit("La carte contient un ou des carctere(s) non valides!");
-	if (!check_elements(map, height))
-		error_and_exit("Verifiez le nombre de P, E et C ;)");
+	if (!check_chars(game->map, game->map_height))
+		error_and_exit("La carte contient un ou des caractères non valides!");
+	if (!check_elements(game->map, game->map_height))
+		error_and_exit("Vérifiez le nombre de P, E et C ;)");
+	find_player_position(game);
+	if (!validate_path(game->map, game->map_width, game->map_height,
+			game->player_x, game->player_y))
+		error_and_exit("Collectibles ou sortie inaccessibles !");
 }

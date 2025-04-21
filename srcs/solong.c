@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 17:52:11 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 20:29:47 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 	game.img.addr = mlx_get_data_addr(game.img.img, &game.img.bits_per_pixel,
 			&game.img.line_length, &game.img.endian);
 	load_images(game.mlx, &game.imgs);
-	validate_map(game.map, game.map_height);
+	validate_map(&game);
 	find_player_position(&game);
 	print_map_graphics(&game);
 	mlx_key_hook(game.win, handle_keypress, &game);

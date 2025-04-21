@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 19:46:09 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 20:26:44 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int			handle_keypress(int keycode, t_game *game);
 void		move_count(t_game *game);
 
 /*verification map*/
-void		validate_map(char **map, int height);
+void		validate_map(t_game *game);
 void		error_and_exit(const char *message);
 int			check_elements(char **map, int height);
 int			check_chars(char **map, int height);

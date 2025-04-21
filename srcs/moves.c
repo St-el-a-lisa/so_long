@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 17:53:12 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 18:15:35 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,6 @@ int	handle_keypress(int keycode, t_game *game)
 		move_player(game, 1, 0);
 	return (0);
 }
-
-#include <stdio.h>
 
 void	move_count(t_game *game)
 {

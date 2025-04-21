@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 21:33:50 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 17:53:12 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	find_player_position(t_game *game)
 		y++;
 	}
 }
+
 int	has_collected_all(t_game *game)
 {
 	int	y;
@@ -88,6 +89,7 @@ void	move_player(t_game *game, int dx, int dy)
 	game->map[new_y][new_x] = 'P';
 	game->player_x = new_x;
 	game->player_y = new_y;
+	move_count(game);
 	print_map_graphics(game);
 }
 
@@ -104,4 +106,12 @@ int	handle_keypress(int keycode, t_game *game)
 	else if (keycode == 100)
 		move_player(game, 1, 0);
 	return (0);
+}
+
+#include <stdio.h>
+
+void	move_count(t_game *game)
+{
+	game->move_count++;
+	ft_printf("Move count: %d\n", game->move_count);
 }

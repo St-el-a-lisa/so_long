@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 21:34:37 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 17:48:05 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_game
 	int		tile_size;
 	int		player_x;
 	int		player_y;
+	int		move_count;
 }			t_game;
 
 void		print_map(char *file);
@@ -66,6 +67,7 @@ void		display_victory_message(t_game *game);
 void		find_player_position(t_game *game);
 void		move_player(t_game *game, int dx, int dy);
 int			handle_keypress(int keycode, t_game *game);
+void		move_count(t_game *game);
 
 /*verification map*/
 void		validate_map(char **map, int height);

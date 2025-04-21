@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:56:06 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 18:24:32 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,26 @@ void	load_images(void *mlx, t_imgs *imgs)
 			&w, &h);
 }
 
+static void	*get_tile_image(char tile, t_imgs *imgs)
+{
+	if (tile == '1')
+		return (imgs->wall);
+	if (tile == '0')
+		return (imgs->floor);
+	if (tile == 'P')
+		return (imgs->player);
+	if (tile == 'E')
+		return (imgs->exit);
+	if (tile == 'C')
+		return (imgs->collectible);
+	return (NULL);
+}
+
 void	print_map_graphics(t_game *game)
 {
 	int		x;
 	int		y;
 	void	*img;
-	char	tile;
 
 	y = 0;
 	while (game->map[y])
@@ -57,18 +71,7 @@ void	print_map_graphics(t_game *game)
 		x = 0;
 		while (game->map[y][x])
 		{
-			img = NULL;
-			tile = game->map[y][x];
-			if (tile == '1')
-				img = game->imgs.wall;
-			else if (tile == '0')
-				img = game->imgs.floor;
-			else if (tile == 'P')
-				img = game->imgs.player;
-			else if (tile == 'E')
-				img = game->imgs.exit;
-			else if (tile == 'C')
-				img = game->imgs.collectible;
+			img = get_tile_image(game->map[y][x], &game->imgs);
 			if (img)
 				mlx_put_image_to_window(game->mlx, game->win, img, x
 					* game->tile_size, y * game->tile_size);

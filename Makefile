@@ -11,6 +11,7 @@ SRCS = gnl/get_next_line_utils.c\
 		srcs/end_game.c\
 		srcs/moves.c\
 		srcs/check_size.c\
+		srcs/access_valid.c\
 		srcs/is_valid.c\
 		srcs/solong.c
 

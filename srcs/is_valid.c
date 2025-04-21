@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/20 20:54:59 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 20:06:41 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,46 +119,9 @@ void	validate_map(char **map, int height)
 	if (!check_rectangular(map, height))
 		error_and_exit("La map n est pas rectangulaire!");
 	if (!check_walls(map, height))
-		error_and_exit("Il manque des murs!");
+		error_and_exit("Il manque un ou des mur(s)!");
 	if (!check_chars(map, height))
-		error_and_exit("La carte contient des caracteres non valides!");
+		error_and_exit("La carte contient un ou des carctere(s) non valides!");
 	if (!check_elements(map, height))
 		error_and_exit("Verifiez le nombre de P, E et C ;)");
 }
-
-// char	**copy_map(char **map, int height)
-// {
-// 	char	**new_map;
-// 	int		i;
-
-// 	new_map = malloc(sizeof(char *) * (height + 1));
-// 	if (!new_map)
-// 		return (NULL);
-// 	i = 0;
-// 	while (i < height)
-// 	{
-// 		new_map[i] = ft_strdup(map[i]);
-// 		if (!new_map[i])
-// 		{
-// 			while (--i >= 0)
-// 				free(new_map[i]);
-// 			free(new_map);
-// 			return (NULL);
-// 		}
-// 		i++;
-// 	}
-// 	new_map[i] = NULL;
-// 	return (new_map);
-// }
-// void	free_map(char **map)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (map[i])
-// 	{
-// 		free(map[i]);
-// 		i++;
-// 	}
-// 	free(map);
-// }

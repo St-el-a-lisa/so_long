@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 18:24:32 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 20:10:13 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	load_images(void *mlx, t_imgs *imgs)
 	imgs->exit = mlx_xpm_file_to_image(mlx, "./assets/exit.xpm", &w, &h);
 	imgs->collectible = mlx_xpm_file_to_image(mlx, "./assets/collectible.xpm",
 			&w, &h);
+	if (!imgs->wall || !imgs->floor || !imgs->player || !imgs->exit
+		|| !imgs->collectible)
+	{
+		error_and_exit("!!! FAAILLLLEEDDD IMG!!! Bisous!!");
+	}
 }
 
 static void	*get_tile_image(char tile, t_imgs *imgs)

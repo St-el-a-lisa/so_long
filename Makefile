@@ -8,6 +8,7 @@ LIBFT = libft/libft.a
 SRCS = gnl/get_next_line_utils.c\
 		gnl/get_next_line.c\
 		srcs/print.map.c\
+		srcs/load_map.c\
 		srcs/end_game.c\
 		srcs/moves.c\
 		srcs/check_size.c\

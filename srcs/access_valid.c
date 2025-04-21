@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 20:07:37 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/21 21:11:26 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	validate_path(char **map, int width, int height, int start_x, int start_y)
 
 	copy = copy_map(map, height);
 	if (!copy)
-		error_and_exit("Map duplication failed");
+		error_and_exit("Mauvaise copie!!");
 	flood_fill(copy, start_x, start_y);
 	result = acces_valid(copy, width, height);
 	free_map(copy);

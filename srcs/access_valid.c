@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/21 21:45:54 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 15:21:42 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ void	flood_fill(char **map, int x, int y)
 }
 int	acces_valid(char **map, int width, int height)
 {
-	int y, x;
+	int	y;
+	int	x;
+
 	y = 0;
 	while (y < height)
 	{
@@ -67,8 +69,8 @@ int	acces_valid(char **map, int width, int height)
 
 int	validate_path(char **map, int width, int height, int start_x, int start_y)
 {
-	char **copy;
-	int result;
+	char	**copy;
+	int		result;
 
 	copy = copy_map(map, height);
 	if (!copy)
@@ -76,6 +78,5 @@ int	validate_path(char **map, int width, int height, int start_x, int start_y)
 	flood_fill(copy, start_x, start_y);
 	result = acces_valid(copy, width, height);
 	free_map(copy);
-
 	return (result);
 }

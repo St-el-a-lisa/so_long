@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 18:43:16 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 19:10:04 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_imgs
 	void	*wall;
 	void	*floor;
 	void	*player;
-	void	*player_left;
 	void	*exit;
 	void	*collectible;
 }			t_imgs;

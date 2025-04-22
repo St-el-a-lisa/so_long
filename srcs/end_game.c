@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 15:25:27 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 20:29:58 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	display_victory_message(t_game *game)
 		"Bon Latte a toi!! ~ ^_^ ~");
 	usleep(50000);
 	mlx_do_sync(game->mlx);
-	sleep(3);
+	sleep(2);
 	close_window(game);
 }
 

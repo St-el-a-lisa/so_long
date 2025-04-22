@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 15:23:16 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 16:49:29 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ void	print_map(char *file)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
+	line = get_next_line(fd);
 	if (fd < 0)
 	{
 		perror("open");
 		return ;
 	}
-	while ((line = get_next_line(fd)) != NULL)
+	while (line != NULL)
 	{
 		ft_printf("%s", line);
 		free(line);

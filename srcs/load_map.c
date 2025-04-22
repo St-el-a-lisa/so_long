@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 15:19:29 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 16:52:42 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**load_map(char *file)
 
 	if (!check_file_extension(file))
 	{
-		error_and_exit("Le fichier doit avoir l'extension .ber");
+		error_and_exit("Le fichier doit etre au format .ber");
 	}
 	lines = count_lines(file);
 	if (lines < 0)

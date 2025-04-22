@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 17:39:17 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 18:04:14 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 
 	ft_bzero(&game, sizeof(t_game));
 	game.tile_size = 32;
-	game.map = load_map("maps/map_OG.ber");
+	game.map = load_map("maps/map2_sujet.ber");
 	game.map_height = get_map_height(game.map);
 	game.map_width = get_map_width(game.map);
 	game.mlx = mlx_init();

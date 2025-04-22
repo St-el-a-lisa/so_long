@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 17:37:25 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 18:00:56 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int			check_rectangular(char **map, int height);
 char		**copy_map(char **map, int height);
 void		flood_fill(char **map, int x, int y);
 int			acces_valid(char **map, int width, int height);
-int			validate_path(char **map, int width, int height, int start_x,
-				int start_y);
+int			validate_path(t_game *game);
 
 /*Taille de la fenetre*/
 int			get_map_height(char **map);

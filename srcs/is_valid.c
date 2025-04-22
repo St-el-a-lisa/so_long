@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 15:19:08 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 15:26:55 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	check_walls(char **map, int height)
 	}
 	return (1);
 }
+
 int	check_chars(char **map, int height)
 {
 	int		y;
@@ -65,8 +66,9 @@ int	check_chars(char **map, int height)
 	while (y < height)
 	{
 		x = 0;
-		while ((c = map[y][x]))
+		while (map[y][x])
 		{
+			c = map[y][x];
 			if (c != '0' && c != '1' && c != 'P' && c != 'C' && c != 'E')
 				return (0);
 			x++;

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 18:00:56 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 18:43:16 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void		move_count(t_game *game);
 /*verification map*/
 void		validate_map(t_game *game);
 void		error_and_exit(const char *message);
-int			check_elements(char **map, int height);
+int			check_elements(t_game *game);
 int			check_chars(char **map, int height);
 int			check_walls(char **map, int height);
 int			check_rectangular(char **map, int height);

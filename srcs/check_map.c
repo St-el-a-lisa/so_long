@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 16:07:32 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 18:40:59 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,33 +78,37 @@ int	check_chars(char **map, int height)
 	return (1);
 }
 
-int	check_elements(char **map, int height)
+static int	count_elements(t_game *game, char element)
 {
 	int	y;
 	int	x;
-	int	p_count;
-	int	e_count;
-	int	c_count;
+	int	count;
 
-	p_count = 0;
-	e_count = 0;
-	c_count = 0;
 	y = 0;
-	while (y < height)
+	count = 0;
+	while (y < game->map_height)
 	{
 		x = 0;
-		while (map[y][x])
+		while (game->map[y][x])
 		{
-			if (map[y][x] == 'P')
-				p_count++;
-			else if (map[y][x] == 'E')
-				e_count++;
-			else if (map[y][x] == 'C')
-				c_count++;
+			if (game->map[y][x] == element)
+				count++;
 			x++;
 		}
 		y++;
 	}
+	return (count);
+}
+
+int	check_elements(t_game *game)
+{
+	int	p_count;
+	int	e_count;
+	int	c_count;
+
+	p_count = count_elements(game, 'P');
+	e_count = count_elements(game, 'E');
+	c_count = count_elements(game, 'C');
 	if (p_count != 1 || e_count != 1 || c_count < 1)
 		return (0);
 	return (1);

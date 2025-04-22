@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 18:00:21 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 18:42:58 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	validate_map(t_game *game)
 		error_and_exit("Il manque un ou des mur(s)!");
 	if (!check_chars(game->map, game->map_height))
 		error_and_exit("La carte contient un ou des caractères non valides!");
-	if (!check_elements(game->map, game->map_height))
+	if (!check_elements(game))
 		error_and_exit("Vérifiez le nombre de P, E et C ;)");
 	find_player_position(game);
 	if (!validate_path(game))

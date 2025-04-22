@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/22 15:16:42 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/22 15:30:34 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	get_map_height(char **map)
 		height++;
 	return (height);
 }
+
 int	get_map_width(char **map)
 {
 	return (ft_strlen(map[0]));

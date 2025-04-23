@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:47:41 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 20:08:31 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	init_game(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
 	game->tile_size = 32;
-	game->map = load_map("maps/invalid_map3.ber", game);
+	game->map = load_map("maps/map_OG.ber", game);
 	if (!game->map)
 		error_and_exit("Échec du chargement de la map", game);
 	game->map_height = get_map_height(game->map);

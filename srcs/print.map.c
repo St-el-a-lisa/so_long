@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 18:59:27 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 19:24:25 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_map(char *file)
 	close(fd);
 }
 
-void	load_images(void *mlx, t_imgs *imgs)
+void	load_images(void *mlx, t_imgs *imgs, t_game *game)
 {
 	int	w;
 	int	h;
@@ -46,7 +46,7 @@ void	load_images(void *mlx, t_imgs *imgs)
 	if (!imgs->wall || !imgs->floor || !imgs->player || !imgs->exit
 		|| !imgs->collectible)
 	{
-		error_and_exit("!!! FAAILLLLEEDDD IMG!!! Bisous!!");
+		error_and_exit("!!! FAAILLLLEEDDD IMG!!! Bisous!!", game);
 	}
 }
 

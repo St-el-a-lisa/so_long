@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 18:58:42 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 19:25:01 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ typedef struct s_game
 
 void		print_map(char *file);
 void		print_map_graphics(t_game *game);
-char		**load_map(char *file);
+char		**load_map(char *file, t_game *game);
 
-void		load_images(void *mlx, t_imgs *imgs);
+void		load_images(void *mlx, t_imgs *imgs, t_game *game);
 void		free_map(char **map);
 void		free_all_resources(t_game *game);
 int			close_window(t_game *game);
@@ -71,7 +71,7 @@ void		move_count(t_game *game);
 
 /*verification map*/
 void		validate_map(t_game *game);
-void		error_and_exit(const char *message);
+void		error_and_exit(const char *message, t_game *game);
 int			check_elements(t_game *game);
 int			check_chars(char **map, int height);
 int			check_walls(char **map, int height);

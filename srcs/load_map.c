@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 18:58:25 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 19:22:00 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	check_file_extension(const char *filename)
 	return (1);
 }
 
-char	**load_map(char *file)
+char	**load_map(char *file, t_game *game)
 {
 	int		lines;
 	char	**map;
@@ -83,7 +83,7 @@ char	**load_map(char *file)
 
 	if (!check_file_extension(file))
 	{
-		error_and_exit("Le fichier doit etre au format .ber");
+		error_and_exit("Le fichier doit etre au format .ber", game);
 	}
 	lines = count_lines(file);
 	if (lines < 0)

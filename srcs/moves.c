@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:11:30 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 21:20:30 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,14 @@ int	handle_keypress(int keycode, t_game *game)
 
 void	move_count(t_game *game)
 {
+	char	*count_str;
+	char	*display_str;
+
 	game->move_count++;
 	ft_printf("Move count: %d\n", game->move_count);
+	count_str = ft_itoa(game->move_count);
+	display_str = ft_strjoin("Moves: ", count_str);
+	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFFFFF, display_str);
+	free(count_str);
+	free(display_str);
 }

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:11:24 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 22:13:20 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void		free_map(char **map);
 void		find_player_position(t_game *game);
 void		move_player(t_game *game, int dx, int dy);
 int			handle_keypress(int keycode, t_game *game);
-void		move_count(t_game *game);
 
 /*verification map*/
 void		validate_map(t_game *game);
@@ -83,8 +82,11 @@ int			get_map_height(char **map);
 int			get_map_width(char **map);
 int			check_map_size(t_game *game);
 
-/*end map*/
+/*"Bonus"*/
+void		display_move_count(t_game *game);
 void		display_victory_message(t_game *game);
+
+/*end map*/
 void		free_all_resources(t_game *game);
 int			close_window(t_game *game);
 

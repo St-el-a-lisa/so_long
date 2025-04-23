@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:20:51 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 22:11:02 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void	print_map_graphics(t_game *game)
 		}
 		y++;
 	}
-	move_count(game);
+	display_move_count(game);
 }

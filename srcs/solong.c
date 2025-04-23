@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:12:10 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 21:42:19 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	init_game(t_game *game)
 {
+	game->move_count = 0;
 	ft_bzero(game, sizeof(t_game));
 	game->tile_size = 32;
 	game->map = load_map("maps/map_OG.ber", game);

@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:20:30 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 22:10:49 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void	move_player(t_game *game, int dx, int dy)
 	game->map[new_y][new_x] = 'P';
 	game->player_x = new_x;
 	game->player_y = new_y;
-	move_count(game);
+	game->move_count++;
+	ft_printf("Move count: %d\n", game->move_count);
 	print_map_graphics(game);
 }
 
@@ -108,13 +109,11 @@ int	handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
-void	move_count(t_game *game)
+void	display_move_count(t_game *game)
 {
 	char	*count_str;
 	char	*display_str;
 
-	game->move_count++;
-	ft_printf("Move count: %d\n", game->move_count);
 	count_str = ft_itoa(game->move_count);
 	display_str = ft_strjoin("Moves: ", count_str);
 	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFFFFF, display_str);

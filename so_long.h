@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:28:11 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:25:01 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/23 20:42:28 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,12 @@ typedef struct s_game
 	int		move_count;
 }			t_game;
 
+/* map process*/
 void		print_map(char *file);
 void		print_map_graphics(t_game *game);
 char		**load_map(char *file, t_game *game);
-
 void		load_images(void *mlx, t_imgs *imgs, t_game *game);
 void		free_map(char **map);
-void		free_all_resources(t_game *game);
-int			close_window(t_game *game);
-void		display_victory_message(t_game *game);
 
 /* player moves*/
 void		find_player_position(t_game *game);
@@ -84,5 +81,11 @@ int			validate_path(t_game *game);
 /*Taille de la fenetre*/
 int			get_map_height(char **map);
 int			get_map_width(char **map);
+int			check_map_size(t_game *game);
+
+/*end map*/
+void		display_victory_message(t_game *game);
+void		free_all_resources(t_game *game);
+int			close_window(t_game *game);
 
 #endif

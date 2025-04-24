@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 20:37:27 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 17:12:01 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_map_size(t_game *game)
 	window_height = game->map_height * game->tile_size;
 	if (window_width > max_width || window_height > max_height)
 	{
-		error_and_exit("La map est trop grande pour l'écran !", game);
+		error_and_exit("Map exceeds screen size!", game);
 	}
 	return (1);
 }

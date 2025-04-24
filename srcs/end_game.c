@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:21:11 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 17:14:46 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	display_victory_message(t_game *game)
 	mlx_clear_window(game->mlx, game->win);
 	mlx_string_put(game->mlx, game->win, (game->map_width * game->tile_size) / 2
 		- 100, (game->map_height * game->tile_size) / 2, 0xFF69B4,
-		"Bon Latte a toi!! ~ ^_^ ~");
+		"Enjoy your latte!! ~ ^_^ ~");
 	mlx_do_sync(game->mlx);
 	sleep(2);
 	close_window(game);

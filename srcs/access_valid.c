@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:25:29 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 17:11:19 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	validate_path(t_game *game)
 
 	copy = copy_map(game->map, game->map_height);
 	if (!copy)
-		error_and_exit("Mauvaise copie!!", game);
+		error_and_exit("Bad copy!!", game);
 	flood_fill(copy, game->player_x, game->player_y);
 	result = acces_valid(copy, game->map_width, game->map_height);
 	free_map(copy);

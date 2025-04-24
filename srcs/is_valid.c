@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:18:25 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 17:17:43 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,14 @@ void	error_and_exit(const char *message, t_game *game)
 void	validate_map(t_game *game)
 {
 	if (!check_rectangular(game->map, game->map_height))
-		error_and_exit("La map n'est pas rectangulaire !", game);
+		error_and_exit("Map is not rectangular!", game);
 	if (!check_walls(game->map, game->map_height))
-		error_and_exit("Il manque un ou des murs !", game);
+		error_and_exit("Missing one or more walls!", game);
 	if (!check_chars(game->map, game->map_height))
-		error_and_exit("La carte contient un ou des caractères non valides !",
-			game);
+		error_and_exit("Map contains one or more invalid characters!", game);
 	if (!check_elements(game))
-		error_and_exit("Vérifiez le nombre de P, E et C ;)", game);
+		error_and_exit("Check the number of P, E, and C ;)", game);
 	find_player_position(game);
 	if (!validate_path(game))
-		error_and_exit("Collectibles ou sortie inaccessibles !", game);
+		error_and_exit("Collectibles or exit unreachable!", game);
 }

@@ -1,6 +1,6 @@
-NAME = solong
+NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -Ignl -Ilibft  -g3
+CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -Ignl -Ilibft
 LDFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 LIBFT = libft/libft.a
@@ -15,7 +15,7 @@ SRCS = gnl/get_next_line_utils.c\
 		srcs/check_size.c\
 		srcs/access_valid.c\
 		srcs/is_valid.c\
-		srcs/solong.c
+		srcs/so_long.c
 
 OBJ = $(SRCS:.c=.o)
 

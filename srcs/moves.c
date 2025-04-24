@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/24 14:53:21 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 16:48:23 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	move_player(t_game *game, int dx, int dy)
 	game->player_x = new_x;
 	game->player_y = new_y;
 	game->move_count++;
-	ft_printf("Move count: %d\n", game->move_count);
+	ft_printf("Step count: %d\n", game->move_count);
 	print_map_graphics(game);
 }
 
@@ -115,7 +115,7 @@ void	display_move_count(t_game *game)
 	char	*display_str;
 
 	count_str = ft_itoa(game->move_count);
-	display_str = ft_strjoin("Nombre de pas : ", count_str);
+	display_str = ft_strjoin("Step count: ", count_str);
 	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFFFFF, display_str);
 	free(count_str);
 	free(display_str);

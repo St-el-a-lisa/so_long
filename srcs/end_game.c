@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/24 17:14:46 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 19:45:09 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 void	display_victory_message(t_game *game)
 {
+	int		window_width;
+	char	*message;
+	int		text_x;
+
+	window_width = game->map_width * game->tile_size;
+	if (game->map_width <= 6)
+	{
+		message = "~ ^_^ ~";
+		text_x = window_width / 2 - 30;
+	}
+	else
+	{
+		message = "Enjoy your latte!! ~ ^_^ ~";
+		text_x = window_width / 2 - 100;
+	}
 	mlx_clear_window(game->mlx, game->win);
-	mlx_string_put(game->mlx, game->win, (game->map_width * game->tile_size) / 2
-		- 100, (game->map_height * game->tile_size) / 2, 0xFF69B4,
-		"Enjoy your latte!! ~ ^_^ ~");
+	mlx_string_put(game->mlx, game->win, text_x, (game->map_height
+			* game->tile_size) / 2, 0xFF69B4, message);
 	mlx_do_sync(game->mlx);
 	sleep(2);
 	close_window(game);

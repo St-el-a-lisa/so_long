@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 19:22:00 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 14:51:59 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	load_lines(int fd, char **map)
 	return (1);
 }
 
-int	check_file_extension(const char *filename)
+static int	check_file_extension(const char *filename)
 {
 	int	len;
 

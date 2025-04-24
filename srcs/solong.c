@@ -6,18 +6,18 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:42:19 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 16:23:01 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_game(t_game *game)
+static void	init_game(t_game *game, char *map_path)
 {
-	game->move_count = 0;
 	ft_bzero(game, sizeof(t_game));
+	game->move_count = 0;
 	game->tile_size = 32;
-	game->map = load_map("maps/map_OG.ber", game);
+	game->map = load_map(map_path, game);
 	if (!game->map)
 		error_and_exit("Échec du chargement de la map", game);
 	game->map_height = get_map_height(game->map);
@@ -40,11 +40,16 @@ static void	init_window(t_game *game)
 			&game->img.line_length, &game->img.endian);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	init_game(&game);
+	if (argc != 2)
+	{
+		ft_putstr_fd("Usage: ./so_long fichier.ber\n", 2);
+		return (1);
+	}
+	init_game(&game, argv[1]);
 	init_window(&game);
 	load_images(game.mlx, &game.imgs, &game);
 	find_player_position(&game);

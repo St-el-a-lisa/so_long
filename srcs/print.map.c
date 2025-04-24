@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:40:56 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 22:11:02 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 15:10:21 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	load_images(void *mlx, t_imgs *imgs, t_game *game)
 	if (!imgs->wall || !imgs->floor || !imgs->player || !imgs->exit
 		|| !imgs->collectible)
 	{
-		error_and_exit("!!! FAAILLLLEEDDD IMG!!! Bisous!!", game);
+		error_and_exit("!!! FAAILLLLEEDDD IMG!!! Kisss!!", game);
 	}
 }
 

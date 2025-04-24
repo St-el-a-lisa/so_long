@@ -6,7 +6,7 @@
 /*   By: ecid <ecid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 17:31:06 by ecid              #+#    #+#             */
-/*   Updated: 2025/04/23 21:23:52 by ecid             ###   ########.fr       */
+/*   Updated: 2025/04/24 16:26:14 by ecid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	ft_bzero(void *str, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif
